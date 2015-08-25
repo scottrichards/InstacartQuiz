@@ -9,6 +9,7 @@
 #import "QuizViewController.h"
 #import "QuestionsData.h"
 #import "QuestionInfo.h"
+#import "ImageCollectionViewCell.h"
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) // Background thread constant for convenience
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) QuestionsData *questionsData;
 @property (assign, nonatomic) NSUInteger currrentQuestion;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
+@property (strong, nonatomic) QuestionInfo *currentQuestionInfo;
 @end
 
 @implementation QuizViewController
@@ -62,19 +64,76 @@
 {
   _currrentQuestion = 0;
   [self updateDisplay];
+  [_imagesCollectionView reloadData];
 }
 
 - (void)updateDisplay
 {
   _currentQuestionLabel.text = [_numberFormatter stringFromNumber:[NSNumber numberWithInteger:_currrentQuestion]];
   _totalQuestionsLabel.text = [_numberFormatter stringFromNumber:[NSNumber numberWithInteger:[_questionsData questionCount]]];
-  QuestionInfo *questionInfo = [_questionsData.questions objectAtIndex:_currrentQuestion];
-  _questionLabel.text = questionInfo.product;
+  _currentQuestionInfo = [_questionsData.questions objectAtIndex:_currrentQuestion];
+  _questionLabel.text = _currentQuestionInfo.product;
 }
 
 - (IBAction)onNext:(id)sender {
   _currrentQuestion++;
   [self updateDisplay];
+  [_imagesCollectionView reloadData];
+}
+
+#pragma mark - UICollectionView Datasource
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+  QuestionInfo *questionInfo = [_questionsData.questions objectAtIndex:_currrentQuestion];
+  if (questionInfo)
+    return [questionInfo.imagesArray count];
+  else
+    return 0;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+  return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  ImageCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+  NSString *imagePath = [_currentQuestionInfo.imagesArray objectAtIndex:indexPath.row];
+  NSLog(@"Path: %@",imagePath);
+  cell.imageLabel.text = [self labelForImage:indexPath.row];
+  [cell.imageView setImage:nil];
+  if (imagePath) {
+    NSURLRequest *request = [NSURLRequest requestWithURL:
+                             [NSURL URLWithString:imagePath]];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *connectionError) {
+                              [cell.imageView setImage:[UIImage imageWithData:data]];
+                           }];
+  }
+  return cell;
+}
+
+
+
+- (NSString *)labelForImage:(NSUInteger)index
+{
+  switch (index) {
+    case 0:
+      return @"A";
+      break;
+    case 1:
+      return @"B";
+      break;
+    case 2:
+      return @"C";
+      break;
+    case 3:
+      return @"D";
+      break;
+  }
+  return  @"";
 }
 
 /*
