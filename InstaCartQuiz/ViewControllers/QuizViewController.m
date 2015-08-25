@@ -18,10 +18,14 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *currentQuestionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalQuestionsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberCorrectLabel;
 @property (strong, nonatomic) QuestionsData *questionsData;
 @property (assign, nonatomic) NSUInteger currrentQuestion;
 @property (strong, nonatomic) NSNumberFormatter *numberFormatter;
 @property (strong, nonatomic) QuestionInfo *currentQuestionInfo;
+@property (assign, nonatomic) NSUInteger randomStart;
+@property (assign, nonatomic) int currentSelection;    // the currently selected tag 0 is always the correct one
+@property (assign, nonatomic) NSUInteger numberCorrect;    // the number of correct answers
 @end
 
 @implementation QuizViewController
@@ -29,9 +33,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   [self loadQuestions];
+  _numberCorrect = 0;
   if (_numberFormatter == nil) {
     _numberFormatter = [NSNumberFormatter new];
     [_numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    _randomStart = arc4random_uniform(4);
   }
 }
 
@@ -65,14 +71,25 @@
 {
   _currentQuestionLabel.text = [_numberFormatter stringFromNumber:[NSNumber numberWithInteger:_currrentQuestion]];
   _totalQuestionsLabel.text = [_numberFormatter stringFromNumber:[NSNumber numberWithInteger:[_questionsData questionCount]]];
+  _numberCorrectLabel.text = [_numberFormatter stringFromNumber:[NSNumber numberWithInteger:_numberCorrect]];
   _currentQuestionInfo = [_questionsData.questions objectAtIndex:_currrentQuestion];
   _questionLabel.text = _currentQuestionInfo.product;
 }
 
 - (IBAction)onNext:(id)sender {
   _currrentQuestion++;
+  if (_currentSelection == 0) {
+    _numberCorrect++;
+  }
   [self updateDisplay];
   [_imagesCollectionView reloadData];
+  _currentSelection = -1;
+  _randomStart = arc4random_uniform(4);
+}
+
+- (NSUInteger)randomIndex:(NSUInteger)index
+{
+  return(_randomStart + index) % 4;
 }
 
 #pragma mark - UICollectionView Datasource
@@ -90,7 +107,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   ImageCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-  NSString *imagePath = [_currentQuestionInfo.imagesArray objectAtIndex:indexPath.row];
+  NSUInteger randomIndex = [self randomIndex:indexPath.row];
+  NSString *imagePath = [_currentQuestionInfo.imagesArray objectAtIndex:randomIndex];
+  cell.tag = randomIndex;
   NSLog(@"Path: %@",imagePath);
   cell.imageLabel.text = [self labelForImage:indexPath.row];
   [cell.imageView setImage:nil];
@@ -113,7 +132,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
   ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
- 
+  NSLog(@"Selected indexPath.row %ld randomStart = %ld, cell.tag %ld",indexPath.row,_randomStart,cell.tag);
+  _currentSelection = cell.tag;
+  if (cell.tag == 0)
+    NSLog(@"Correct selection");
+  else
+    NSLog(@"Wrong Item");
 }
 
 
