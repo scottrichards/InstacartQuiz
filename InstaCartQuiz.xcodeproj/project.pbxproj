@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0151DFB11B8BDCD200F8054F /* QuestionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0151DFB01B8BDCD200F8054F /* QuestionInfo.m */; };
+		0151DFB41B8BE92800F8054F /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0151DFB31B8BE92800F8054F /* ImageCollectionViewCell.m */; };
 		0167406B1B8BD19A003BF37F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167406A1B8BD19A003BF37F /* main.m */; };
 		0167406E1B8BD19A003BF37F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167406D1B8BD19A003BF37F /* AppDelegate.m */; };
 		016740711B8BD19A003BF37F /* InstaCartQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0167406F1B8BD19A003BF37F /* InstaCartQuiz.xcdatamodeld */; };
-		016740741B8BD19A003BF37F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016740731B8BD19A003BF37F /* ViewController.m */; };
 		016740771B8BD19A003BF37F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016740751B8BD19A003BF37F /* Main.storyboard */; };
 		016740791B8BD19A003BF37F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 016740781B8BD19A003BF37F /* Images.xcassets */; };
 		0167407C1B8BD19A003BF37F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0167407A1B8BD19A003BF37F /* LaunchScreen.xib */; };
 		016740881B8BD19A003BF37F /* InstaCartQuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 016740871B8BD19A003BF37F /* InstaCartQuizTests.m */; };
+		016740941B8BD4EF003BF37F /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016740931B8BD4EF003BF37F /* QuizViewController.m */; };
+		016740981B8BD53D003BF37F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016740971B8BD53D003BF37F /* MainViewController.m */; };
+		0167409A1B8BD668003BF37F /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 016740991B8BD668003BF37F /* questions.json */; };
+		0167409D1B8BD704003BF37F /* QuestionsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167409C1B8BD704003BF37F /* QuestionsData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +33,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0151DFAF1B8BDCD200F8054F /* QuestionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInfo.h; sourceTree = "<group>"; };
+		0151DFB01B8BDCD200F8054F /* QuestionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInfo.m; sourceTree = "<group>"; };
+		0151DFB21B8BE92800F8054F /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewCell.h; path = Cells/ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		0151DFB31B8BE92800F8054F /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewCell.m; path = Cells/ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		016740651B8BD19A003BF37F /* InstaCartQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaCartQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		016740691B8BD19A003BF37F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0167406A1B8BD19A003BF37F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0167406C1B8BD19A003BF37F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0167406D1B8BD19A003BF37F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		016740701B8BD19A003BF37F /* InstaCartQuiz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaCartQuiz.xcdatamodel; sourceTree = "<group>"; };
-		016740721B8BD19A003BF37F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		016740731B8BD19A003BF37F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		016740761B8BD19A003BF37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		016740781B8BD19A003BF37F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0167407B1B8BD19A003BF37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		016740811B8BD19A003BF37F /* InstaCartQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaCartQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		016740861B8BD19A003BF37F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		016740871B8BD19A003BF37F /* InstaCartQuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaCartQuizTests.m; sourceTree = "<group>"; };
+		016740921B8BD4EF003BF37F /* QuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizViewController.h; sourceTree = "<group>"; };
+		016740931B8BD4EF003BF37F /* QuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizViewController.m; sourceTree = "<group>"; };
+		016740961B8BD53D003BF37F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		016740971B8BD53D003BF37F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		016740991B8BD668003BF37F /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		0167409B1B8BD704003BF37F /* QuestionsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsData.h; sourceTree = "<group>"; };
+		0167409C1B8BD704003BF37F /* QuestionsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0151DFB51B8BE92E00F8054F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0151DFB21B8BE92800F8054F /* ImageCollectionViewCell.h */,
+				0151DFB31B8BE92800F8054F /* ImageCollectionViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		0167405C1B8BD199003BF37F = {
 			isa = PBXGroup;
 			children = (
@@ -83,14 +106,17 @@
 		016740671B8BD19A003BF37F /* InstaCartQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				0151DFB51B8BE92E00F8054F /* Cells */,
+				0167409E1B8BD70B003BF37F /* Model */,
+				016740951B8BD4F9003BF37F /* ViewControllers */,
+				016740911B8BD2BA003BF37F /* Assets */,
 				0167406C1B8BD19A003BF37F /* AppDelegate.h */,
 				0167406D1B8BD19A003BF37F /* AppDelegate.m */,
-				016740721B8BD19A003BF37F /* ViewController.h */,
-				016740731B8BD19A003BF37F /* ViewController.m */,
 				016740751B8BD19A003BF37F /* Main.storyboard */,
 				016740781B8BD19A003BF37F /* Images.xcassets */,
 				0167407A1B8BD19A003BF37F /* LaunchScreen.xib */,
 				0167406F1B8BD19A003BF37F /* InstaCartQuiz.xcdatamodeld */,
+				016740991B8BD668003BF37F /* questions.json */,
 				016740681B8BD19A003BF37F /* Supporting Files */,
 			);
 			path = InstaCartQuiz;
@@ -120,6 +146,35 @@
 				016740861B8BD19A003BF37F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		016740911B8BD2BA003BF37F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		016740951B8BD4F9003BF37F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				016740921B8BD4EF003BF37F /* QuizViewController.h */,
+				016740931B8BD4EF003BF37F /* QuizViewController.m */,
+				016740961B8BD53D003BF37F /* MainViewController.h */,
+				016740971B8BD53D003BF37F /* MainViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0167409E1B8BD70B003BF37F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0167409B1B8BD704003BF37F /* QuestionsData.h */,
+				0167409C1B8BD704003BF37F /* QuestionsData.m */,
+				0151DFAF1B8BDCD200F8054F /* QuestionInfo.h */,
+				0151DFB01B8BDCD200F8054F /* QuestionInfo.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				016740771B8BD19A003BF37F /* Main.storyboard in Resources */,
+				0167409A1B8BD668003BF37F /* questions.json in Resources */,
 				0167407C1B8BD19A003BF37F /* LaunchScreen.xib in Resources */,
 				016740791B8BD19A003BF37F /* Images.xcassets in Resources */,
 			);
@@ -223,8 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0167406E1B8BD19A003BF37F /* AppDelegate.m in Sources */,
+				016740941B8BD4EF003BF37F /* QuizViewController.m in Sources */,
 				0167406B1B8BD19A003BF37F /* main.m in Sources */,
-				016740741B8BD19A003BF37F /* ViewController.m in Sources */,
+				0167409D1B8BD704003BF37F /* QuestionsData.m in Sources */,
+				016740981B8BD53D003BF37F /* MainViewController.m in Sources */,
+				0151DFB11B8BDCD200F8054F /* QuestionInfo.m in Sources */,
+				0151DFB41B8BE92800F8054F /* ImageCollectionViewCell.m in Sources */,
 				016740711B8BD19A003BF37F /* InstaCartQuiz.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +480,7 @@
 				0167408D1B8BD19A003BF37F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0167408E1B8BD19A003BF37F /* Build configuration list for PBXNativeTarget "InstaCartQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +489,7 @@
 				016740901B8BD19A003BF37F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
