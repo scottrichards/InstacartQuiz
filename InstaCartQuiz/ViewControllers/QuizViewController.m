@@ -107,9 +107,9 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   ImageCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-  NSUInteger randomIndex = [self randomIndex:indexPath.row];
+  NSUInteger randomIndex = [self randomIndex:indexPath.row];  // pick a randomIndex based on indexPath.row so we re-order the items
   NSString *imagePath = [_currentQuestionInfo.imagesArray objectAtIndex:randomIndex];
-  cell.tag = randomIndex;
+  cell.tag = randomIndex;   // set the tag to the index we are loading from The first 0 item is always the correct answer
   NSLog(@"Path: %@",imagePath);
   cell.imageLabel.text = [self labelForImage:indexPath.row];
   [cell.imageView setImage:nil];
@@ -134,7 +134,7 @@
   ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
   NSLog(@"Selected indexPath.row %ld randomStart = %ld, cell.tag %ld",indexPath.row,_randomStart,cell.tag);
   _currentSelection = cell.tag;
-  if (cell.tag == 0)
+  if (cell.tag == 0)  // if the tag is 0 it is the correct answer
     NSLog(@"Correct selection");
   else
     NSLog(@"Wrong Item");
