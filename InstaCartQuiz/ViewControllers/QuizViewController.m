@@ -49,12 +49,6 @@
     NSError* error;
     _questionsData = [QuestionsData new];
     [_questionsData parseJSONData:data];
-//    NSArray* jsonArray = [NSJSONSerialization
-//                          JSONObjectWithData:data
-//                          options:kNilOptions
-//                          error:&error];
-//    _questionsData = [QuestionsData new];
-//    [_questionsData parseJSONTestData:jsonArray];
     [self performSelectorOnMainThread:@selector(parsedData:) withObject:nil waitUntilDone:0];
   });
 }
@@ -115,6 +109,12 @@
   return cell;
 }
 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  ImageCollectionViewCell *cell = (ImageCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+ 
+}
 
 
 - (NSString *)labelForImage:(NSUInteger)index
